@@ -1,0 +1,11 @@
+@import "../variables/variables";
+
+.dark {
+    background-color: $dark-theme-background;
+    color: $dark-theme-font-color;
+}
+
+.light {
+    background-color: $light-theme-background;
+    color: $light-theme-font-color;
+}

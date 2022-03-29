@@ -4,6 +4,7 @@ const cors = require("cors");
 const pool = require("./db");
 const { parse } = require("pg-protocol");
 const types = require("pg").types;
+const logger = require("./logger");
 
 
 
@@ -40,6 +41,7 @@ app.post("/products", async (req, res) => {
 app.get("/products", async (req, res) => {
     try {
         const products = await pool.query("SELECT * FROM products ORDER BY product_id");
+        logger.addLog("GET PRODUCTS");
         res.json(products.rows);
     } catch (error) {
         console.error(error.message);
@@ -57,7 +59,7 @@ app.get("/products/:id", async (req, res) => {
         } else {
             console.log(product);
             res.status(404);
-            res.send('Not found');
+            res.send('NOT FOUND');
         }
     } catch (error) {
         console.error(error.message);
@@ -77,7 +79,7 @@ app.put("/products/:id", async (req, res) => {
             res.json(productUpdated.rows[0]);
         } else {
             res.status(404);
-            res.send("Not found");
+            res.send("NOT FOUND");
         }
     } catch (error) {
         console.error(error.message);
@@ -97,7 +99,7 @@ app.delete("/products/:id", async (req, res) => {
             res.json(deleteProduct.rows[0]);
         } else {
             res.status(404);
-            res.send('Not found');
+            res.send('NOT FOUND');
         }
     } catch (error) {
         console.error(error.message);
