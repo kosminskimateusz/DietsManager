@@ -39,7 +39,7 @@ app.post("/products", async (req, res) => {
 
 app.get("/products", async (req, res) => {
     try {
-        const products = await pool.query("SELECT * FROM products");
+        const products = await pool.query("SELECT * FROM products ORDER BY product_id");
         res.json(products.rows);
     } catch (error) {
         console.error(error.message);
@@ -93,7 +93,7 @@ app.delete("/products/:id", async (req, res) => {
         const { id } = req.params;
 
         if (await checkProductExists(id)) {
-            const deleteProduct = await pool.query(`DELETE FROM products WHERE product_id = ${id}`);
+            const deleteProduct = await pool.query(`DELETE FROM products WHERE product_id = ${id} RETURNING *`);
             res.json(deleteProduct.rows[0]);
         } else {
             res.status(404);
