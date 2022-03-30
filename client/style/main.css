@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+body {
+  position: relative;
+  display: flex;
+}
+
 .dark {
   background-color: #343434;
   color: #d1d0ca;
@@ -12,6 +17,17 @@
 .light {
   background-color: #FFF;
   color: #000;
+}
+
+#side-bar {
+  width: 18rem;
+  height: 100vh;
+  background-color: red;
+  position: fixed;
+}
+
+#content {
+  padding-left: 18rem;
 }
 
 /*# sourceMappingURL=main.css.map */
