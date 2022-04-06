@@ -2,5 +2,13 @@
     width: $side-bar-width;
     height: 100vh;
     background-color: red;
-    position: fixed;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+    #logo {
+        width: 60px;
+        height: 60px;
+    }
 }

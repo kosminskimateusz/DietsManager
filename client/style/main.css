@@ -23,7 +23,14 @@ body {
   width: 18rem;
   height: 100vh;
   background-color: red;
-  position: fixed;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+#side-bar #logo {
+  width: 60px;
+  height: 60px;
 }
 
 #content {
