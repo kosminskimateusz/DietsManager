@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -23,18 +25,40 @@ body {
   width: 18rem;
   height: 100vh;
   background-color: red;
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
-  padding: 10px;
+  padding: 1.5rem;
 }
-#side-bar #logo {
+#side-bar ul {
+  list-style: none;
+}
+#side-bar ul a {
+  color: #d1d0ca;
+  text-decoration: none;
+}
+#side-bar ul a #logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+#side-bar ul a #logo img {
+  color: #d1d0ca;
   width: 60px;
   height: 60px;
+  filter: invert(96%) sepia(6%) saturate(184%) hue-rotate(29deg) brightness(90%) contrast(100%);
 }
-
-#content {
-  padding-left: 18rem;
+#side-bar ul a #logo span {
+  display: block;
+  font-size: 1.6em;
+  text-decoration: none;
+  font-family: "Indie Flower", cursive;
+  text-shadow: 1px 1px rgba(75, 72, 72, 0.616);
+  transform: rotate(-7deg);
+}
+#side-bar ul a:visited {
+  color: inherit;
 }
 
 /*# sourceMappingURL=main.css.map */

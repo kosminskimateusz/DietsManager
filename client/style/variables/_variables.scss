@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 // Dark Theme
 
 $dark-theme-background: #343434;
-$dark-theme-font-color: rgb(209, 208, 202);
+$dark-theme-font-color: #d1d0ca;
+$dark-theme-logo-filter: invert(96%) sepia(6%) saturate(184%) hue-rotate(29deg) brightness(90%) contrast(100%);
 
 // Light Theme
 
@@ -11,3 +16,7 @@ $light-theme-font-color: #000;
 // Side Bar Width
 
 $side-bar-width: 18rem;
+
+// Logo font
+
+$logo-font: 'Indie Flower', cursive;
