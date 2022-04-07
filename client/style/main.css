@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body {
@@ -29,36 +30,41 @@ body {
   display: flex;
   justify-content: center;
   padding: 1.5rem;
+  top: 0;
+  left: 0;
 }
-#side-bar ul {
+#side-bar ul li {
   list-style: none;
 }
-#side-bar ul a {
+#side-bar ul li #home-page {
   color: #d1d0ca;
-  text-decoration: none;
 }
-#side-bar ul a #logo {
+#side-bar ul li #home-page #logo {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 1.5rem;
 }
-#side-bar ul a #logo img {
-  color: #d1d0ca;
-  width: 60px;
-  height: 60px;
+#side-bar ul li #home-page #logo img {
+  width: 80px;
+  height: 80px;
   filter: invert(96%) sepia(6%) saturate(184%) hue-rotate(29deg) brightness(90%) contrast(100%);
 }
-#side-bar ul a #logo span {
+#side-bar ul li #home-page #logo span {
   display: block;
-  font-size: 1.6em;
-  text-decoration: none;
+  font-size: 1.8em;
   font-family: "Indie Flower", cursive;
   text-shadow: 1px 1px rgba(75, 72, 72, 0.616);
   transform: rotate(-7deg);
 }
-#side-bar ul a:visited {
-  color: inherit;
+#side-bar ul li #home-page:hover #logo > span {
+  color: #000;
+  text-shadow: 1px 1px rgba(107, 106, 106, 0.521);
+  transition: all 0.4s;
+}
+#side-bar ul li #home-page:hover #logo > img {
+  filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(312deg) brightness(98%) contrast(102%);
+  transition: all 0.3s;
 }
 
 /*# sourceMappingURL=main.css.map */

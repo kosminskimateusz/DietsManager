@@ -6,13 +6,15 @@
     display: flex;
     justify-content: center;
     padding: 1.5rem;
+    top: 0;
+    left: 0;
 
-    ul {
+    ul li {
         list-style: none;
-        a {
+
+        #home-page {
             color: $dark-theme-font-color;
-            text-decoration: none;
-            
+
 
             #logo {
                 display: flex;
@@ -22,24 +24,34 @@
                 margin-bottom: 1.5rem;
 
                 img {
-                    color: $dark-theme-font-color;
-                    width: 60px;
-                    height: 60px;
+                    width: 80px;
+                    height: 80px;
                     filter: $dark-theme-logo-filter;
                 }
 
                 span {
                     display: block;
-                    font-size: 1.6em;
-                    text-decoration: none;
+                    font-size: 1.8em;
                     font-family: $logo-font;
                     text-shadow: 1px 1px rgba(75, 72, 72, 0.616);
                     transform: rotate(-7deg);
                 }
             }
+
         }
-        a:visited {
-            color: inherit;
+
+        #home-page:hover {
+            #logo>span {
+                color: $light-theme-font-color;
+                text-shadow: 1px 1px rgba(107, 106, 106, 0.521);
+                transition: all .4s;
+            }
+
+            #logo>img {
+
+                filter: $dark-theme-logo-filter-hover;
+                transition: all .3s;
+            }
         }
     }
 }
