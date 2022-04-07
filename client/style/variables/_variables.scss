@@ -5,19 +5,23 @@
 // Dark Theme
 
 $dark-theme-background: #343434;
+$dark-theme-background-side-bar: #3a3a3a;
 $dark-theme-font-color: #d1d0ca;
 $dark-theme-logo-filter: invert(96%) sepia(6%) saturate(184%) hue-rotate(29deg) brightness(90%) contrast(100%);
 $dark-theme-logo-filter-hover: invert(0%) sepia(0%) saturate(0%) hue-rotate(312deg) brightness(98%) contrast(102%);
 // Light Theme
 
 $light-theme-background: #FFF;
+$light-theme-background-side-bar: #dbdbdb;
 $light-theme-font-color: #000;
 
 // Side Bar Width
 
 $side-bar-width: 18rem;
 
-// Logo font
+// Fonts
 
-$logo-font: 'Indie Flower',
-cursive;
+$logo-font: 'Indie Flower', cursive;
+
+$side-bar-font: 'Indie Flower', cursive;
+$side-bar-font-size: 1.4rem;

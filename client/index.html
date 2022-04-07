@@ -11,38 +11,43 @@
 </head>
 
 <body class="dark">
-    <nav id="side-bar">
-        <ul>
-            <li>
-                <a href="#" id="home-page">
-                    <div id="logo">
-                        <img src="./img/logo.png" alt="">
-                        <span>
-                            MOON FOOD
-                        </span>
-                    </div>
-                </a>
-            </li>
-            <ul>
+    <nav id="side-bar" class="show">
+        <a href="#" id="home-page">
+            <div id="logo">
+                <img src="./img/logo.png" alt="Moon Food">
+                <span>
+                    Moon Food
+                </span>
+            </div>
+        </a>
+
+        <ul class="side-bar-list">
+            <ul class="inner-list diets">
                 <span>Diets</span>
-                <li>
+                <li class="inner-list-element">
                     <span>Products</span>
                 </li>
-                <li>
+                <li class="inner-list-element">
                     <span>Recipes</span>
                 </li>
-                <li>
+                <li class="inner-list-element">
                     <span>Saved Recipes</span>
                 </li>
+                <li class="inner-list-element">
+                    <span>Shopping List</span>
+                </li>
             </ul>
-            <li>
+            <li class="side-bar-list-element">
                 <span>Contact</span>
             </li>
-            <li>
+            <li class="side-bar-list-element">
                 <span>About</span>
             </li>
+            <li class="side-bar-list-element logout">
+                <span>Logout</span>
+            </li>
         </ul>
-
+        <button class="side-bar-close"></button>
     </nav>
     <main id="content">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, facere inventore ipsa corrupti vitae ratione maxime
