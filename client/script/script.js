@@ -36,3 +36,13 @@ async function getProducts() {
 products = getProducts();
 
 console.log(products);
+
+const HAMBURGER = document.querySelector('.hamburger');
+const SIDE_BAR = document.querySelector('#side-bar');
+
+const toggleSideBar = () => {
+    HAMBURGER.classList.toggle('hamburger--active');
+    SIDE_BAR.classList.toggle('hide');
+}
+
+HAMBURGER.addEventListener('click', toggleSideBar);
