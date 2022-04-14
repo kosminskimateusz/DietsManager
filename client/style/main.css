@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@200;300;500&family=Roboto:wght@300;500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -44,6 +45,7 @@ body {
   padding-top: 4rem;
   top: 0;
   left: 0;
+  transition: transform 0.5s ease-in-out;
 }
 #side-bar #home-page {
   color: #d1d0ca;
@@ -110,17 +112,39 @@ body {
 }
 
 #side-bar.hide {
-  display: none;
+  transform: translateX(-18rem);
 }
 
 #side-bar.show {
   display: block;
 }
 
+#content {
+  padding: 4rem 2.5rem;
+  display: flex;
+}
+#content h1 {
+  color: #d1d0ca;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  width: fit-content;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+#content h1 span {
+  text-align: center;
+  padding-bottom: 1rem;
+  font-weight: 500;
+  width: fit-content;
+  display: block;
+}
+
 .hamburger {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+  position: fixed;
+  top: 0.8rem;
+  left: 0.7rem;
   padding: 5px;
   display: flex;
   justify-content: center;
@@ -146,7 +170,7 @@ body {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  transition: background-color 0.1s 0.3s ease-in-out;
+  transition: background-color 0.1s 0.4s ease-in-out;
 }
 
 .hamburger-inner::before,
@@ -157,7 +181,7 @@ body {
   position: absolute;
   content: "";
   left: 0;
-  transition: transform 0.3s 0.2s ease-in-out;
+  transition: transform 0.3s 0.3s ease-in-out;
 }
 
 .hamburger-inner::before {

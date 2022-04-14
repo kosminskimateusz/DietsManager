@@ -1,3 +1,26 @@
 #content {
     // margin-left: $side-bar-width;
+    padding: 4rem 2.5rem;
+    display: flex;
+    // align-items: center;
+    // justify-content: center;
+
+    h1 {
+        color: $dark-theme-font-color;
+        font-family: $main-font;
+        font-weight: 300;
+        font-size: 1.5rem;
+        width: fit-content;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        span {
+            text-align: center;
+            padding-bottom: 1rem;
+            font-weight: 500;
+            width: fit-content;
+            display: block;
+        }
+    }
 }

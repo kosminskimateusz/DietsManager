@@ -1,7 +1,7 @@
 .hamburger {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+  position: fixed;
+  top: .8rem;
+  left: .7rem;
   padding: 5px;
   display: flex;
   justify-content: center;
@@ -29,11 +29,10 @@
 
 .hamburger-inner {
   @include hamburger-line();
-
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  transition: background-color .1s .3s ease-in-out;
+  transition: background-color .1s .4s ease-in-out;
 }
 
 .hamburger-inner::before,
@@ -42,7 +41,7 @@
 
   content: '';
   left: 0;
-  transition: transform .3s .2s ease-in-out;
+  transition: transform .3s .3s ease-in-out;
 }
 
 .hamburger-inner::before {
