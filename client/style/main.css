@@ -33,7 +33,11 @@ body {
 
 #side-bar {
   width: 18rem;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: 0;
+  -ms-overflow-style: none;
   background-color: #3a3a3a;
   font-size: 1.4rem;
   font-family: "Indie Flower", cursive;
@@ -81,6 +85,7 @@ body {
   transition: all 0.3s;
 }
 #side-bar .side-bar-list {
+  height: fit-content;
   text-decoration: none;
   list-style: none;
   width: fit-content;
@@ -111,6 +116,21 @@ body {
   left: 0.8rem;
 }
 
+#side-bar::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: calc(18rem - 2px);
+  width: 4px;
+  height: 100vh;
+  background-color: #505050;
+  border-radius: 50%;
+}
+
+#side-bar::-webkit-scrollbar {
+  width: 0;
+}
+
 #side-bar.hide {
   transform: translateX(-18rem);
 }
@@ -122,6 +142,9 @@ body {
 #content {
   padding: 4rem 2.5rem;
   display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  justify-content: center;
 }
 #content h1 {
   color: #d1d0ca;
@@ -132,6 +155,7 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 #content h1 span {
   text-align: center;

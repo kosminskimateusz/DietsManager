@@ -1,6 +1,10 @@
 #side-bar {
     width: $side-bar-width;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: 0;
+    -ms-overflow-style: none;
     background-color: $dark-theme-background-side-bar;
     font-size: $side-bar-font-size;
     font-family: $side-bar-font;
@@ -53,6 +57,7 @@
             }
         }
     .side-bar-list {
+        height: fit-content;
         text-decoration: none;
         list-style: none;
         width: fit-content;
@@ -93,6 +98,21 @@
 
     transition: transform .5s ease-in-out;
 
+}
+
+#side-bar::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: calc($side-bar-width - 2px);
+    width: 4px;
+    height: 100vh;
+    background-color: rgb(80, 80, 80);
+    border-radius: 50%;
+}
+
+#side-bar::-webkit-scrollbar {
+    width: 0;
 }
 
 #side-bar.hide {
