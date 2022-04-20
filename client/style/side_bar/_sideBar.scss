@@ -1,7 +1,9 @@
 #side-bar {
     width: $side-bar-width;
-    min-height: 100vh;
-    max-height: 100vh;
+    // min-height: 100vh;
+    min-height: -webkit-fill-available;
+    max-height: -webkit-fill-available;
+    // max-height: 100vh;
     overflow-y: auto;
     scrollbar-width: 0;
     -ms-overflow-style: none;
@@ -17,45 +19,47 @@
     top: 0;
     left: 0;
 
-        #home-page {
-            color: $dark-theme-font-color;
+    #home-page {
+        color: $dark-theme-font-color;
 
-            #logo {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: fit-content;
-                padding: .5rem 0;
-                margin: auto;
+        #logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: fit-content;
+            padding: .5rem 0;
+            margin: auto;
 
-                img {
-                    width: 80px;
-                    height: 80px;
-                    filter: $dark-theme-logo-filter;
-                }
+            img {
+                width: 80px;
+                height: 80px;
+                filter: $dark-theme-logo-filter;
+            }
 
-                span {
-                    display: block;
-                    font-size: 1.8rem;
-                    font-family: $logo-font;
-                    text-transform: uppercase;
-                    text-shadow: 1px 1px rgba(75, 72, 72, 0.616);
-                    transform: rotate(-3deg);
-                }
+            span {
+                display: block;
+                font-size: 1.8rem;
+                font-family: $logo-font;
+                text-transform: uppercase;
+                text-shadow: 1px 1px rgba(75, 72, 72, 0.616);
+                transform: rotate(-3deg);
             }
         }
-        #home-page:hover {
-            #logo>span {
-                color: $light-theme-font-color;
-                text-shadow: 1px 1px rgba(107, 106, 106, 0.521);
-                transition: all .4s;
-            }
+    }
 
-            #logo>img {
-                filter: $dark-theme-logo-filter-hover;
-                transition: all .3s;
-            }
+    #home-page:hover {
+        #logo>span {
+            color: $light-theme-font-color;
+            text-shadow: 1px 1px rgba(107, 106, 106, 0.521);
+            transition: all .4s;
         }
+
+        #logo>img {
+            filter: $dark-theme-logo-filter-hover;
+            transition: all .3s;
+        }
+    }
+
     .side-bar-list {
         height: fit-content;
         text-decoration: none;
