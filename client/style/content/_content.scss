@@ -1,6 +1,5 @@
 #content {
-    // margin-left: $side-bar-width;
-    padding: 4rem 2rem;
+    padding: 4rem 1rem;
     display: flex;
     width: 100vw;
     min-height: -webkit-fill-available;
@@ -8,10 +7,9 @@
     flex-direction: column;
     align-items: center;
     gap: 3rem;
-    // justify-content: center;
 
     h1 {
-        padding: 0 1rem;
+        padding: 0 2rem;
         color: $dark-theme-font-color;
         font-family: $main-font;
         font-weight: 300;
@@ -37,5 +35,6 @@
     article {
         text-indent: 1.8rem;
         font-size: 1.2rem;
+        text-align: justify;
     }
 }

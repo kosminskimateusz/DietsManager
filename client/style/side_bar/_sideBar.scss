@@ -67,25 +67,29 @@
         list-style: none;
         width: fit-content;
         margin: 2rem 0 1rem 2.3rem;
-        // background-color: red;
 
+        a {
+            color: $dark-theme-font-color;
+        }
         .side-bar-list-element {
-            // background-color: orange;
             padding: 0.2rem 0;
         }
 
         .logout {
-            margin-top: 4rem;
+            margin-top: 2rem;
         }
 
         .inner-list {
+            max-height: 10rem;
             list-style: none;
             padding: 0.2rem 0;
+            // transition: all .3s ease-in-out;
+            transition: max-height .6s ease-in-out, opacity .2s ease-in-out, padding .6s ease-in-out;
+            // transition: padding .3s ease-in-out;
 
             .inner-list-element {
                 position: relative;
                 padding-left: 1.4rem;
-                // display: none;
             }
 
             .inner-list-element::before {
@@ -98,6 +102,12 @@
                 top: calc(50% - .1rem);
                 left: .8rem;
             }
+
+        }
+        .split {
+            opacity: 0;
+            max-height: 0 !important;
+            padding: 0;
         }
     }
 

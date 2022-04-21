@@ -11,6 +11,10 @@ body {
     // display: flex;
 }
 
+.preload * {
+    transition: none !important;
+}
+
 .hide {
     display: none;
 }
