@@ -106,7 +106,6 @@ body {
   max-height: 10rem;
   list-style: none;
   padding: 0.2rem 0;
-  transition: max-height 0.6s ease-in-out, opacity 0.2s ease-in-out, padding 0.6s ease-in-out;
 }
 #side-bar .side-bar-list .inner-list .inner-list-element {
   position: relative;
@@ -122,7 +121,7 @@ body {
   top: calc(50% - 0.1rem);
   left: 0.8rem;
 }
-#side-bar .side-bar-list .split {
+#side-bar .side-bar-list .toggle {
   opacity: 0;
   max-height: 0 !important;
   padding: 0;

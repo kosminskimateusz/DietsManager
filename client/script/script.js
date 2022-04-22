@@ -28,9 +28,19 @@ console.log(DIETS_BUTTON);
 const DIETS_LIST = document.querySelector(".inner-list.diets");
 console.log(DIETS_LIST);
 
-DIETS_BUTTON.addEventListener("click", () => {
-    DIETS_LIST.classList.toggle("split");
-})
+const transformUp = "max-height .6s ease-in-out, opacity .2s ease-in-out, padding .4s ease-in-out";
+const transformDown = "max-height .6s ease-in-out, opacity .2s .4s ease-in-out, padding .4s ease-in-out";
+
+const toggleList = () => {
+    if (!DIETS_LIST.classList.contains("toggle")) {
+        DIETS_LIST.classList.add("toggle");
+        DIETS_LIST.style.transition = transformUp;
+    } else {
+        DIETS_LIST.classList.remove("toggle");
+        DIETS_LIST.style.transition = transformDown;
+    }
+}
+DIETS_BUTTON.addEventListener('click', toggleList);
 
 
 
