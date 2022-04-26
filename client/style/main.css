@@ -188,6 +188,21 @@ body {
   text-align: justify;
 }
 
+.products__table {
+  width: 100%;
+  background-color: cadetblue;
+}
+.products__table .products__header {
+  text-align: center;
+  background-color: #885fa0;
+}
+.products__table .products__body {
+  background-color: rebeccapurple;
+}
+.products__table .products__body tr, .products__table .products__body td {
+  text-align: center;
+}
+
 .hamburger {
   position: fixed;
   top: 0.8rem;

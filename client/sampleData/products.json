@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Makaron",
+      "kcal": 34.2
+    },
+    {
+      "id": 2,
+      "name": "Mąka",
+      "kcal": 12.4
+    },
+    {
+      "id": 3,
+      "name": "Papryka",
+      "kcal": 8.7
+    },
+    {
+      "id": 4,
+      "name": "Chleb ziarnisty",
+      "kcal": 43.8
+    },
+    {
+      "id": 5,
+      "name": "Serek wiejski",
+      "kcal": 62.5
+    },
+    {
+      "id": 6,
+      "name": "Twaróg",
+      "kcal": 44.7
+    },
+    {
+      "id": 7,
+      "name": "Ogórek",
+      "kcal": 4.2
+    }
+  ]
+}

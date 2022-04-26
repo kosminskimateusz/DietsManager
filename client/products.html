@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diets Manager</title>
+  <link rel="stylesheet" href="./style/main.css">
+  <script type="module" src="./script/script.js" defer></script>
+</head>
+
+<body class="dark preload">
+  <button class="hamburger">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+  <nav id="side-bar" class="hide">
+    <a href="./index.html" id="home-page">
+      <div id="logo">
+        <img src="./img/logo.png" alt="Moon Food">
+        <span>
+          Moon Food
+        </span>
+      </div>
+    </a>
+
+    <ul class="side-bar-list">
+      <a href="#" class="diets">Diets</a>
+      <ul class="inner-list diets">
+        <li class="inner-list-element">
+          <a href="./products.html">
+            Products
+          </a>
+        </li>
+        <li class="inner-list-element">
+          <a href="#">Recipes</a>
+        </li>
+        <li class="inner-list-element">
+          <a href="#">Saved Recipes</a>
+        </li>
+        <li class="inner-list-element">
+          <a href="#">Shopping List</a>
+        </li>
+      </ul>
+      <li class="side-bar-list-element">
+        <a href="#">Contact</a>
+      </li>
+      <li class="side-bar-list-element">
+        <a href="#">About</a>
+      </li>
+      <li class="side-bar-list-element logout">
+        <a href="#">Logout</a>
+      </li>
+    </ul>
+    <!-- <button id="theme-button">Change theme</button> -->
+  </nav>
+  <main id="content">
+    <h1>
+      <span>Products</span>
+    </h1>
+    <section role="search">
+        <label for="search__input">Product name:
+        </label>
+          <input type="search" name="search__input"id="search__input" placeholder="Search..." maxlength="50">
+        <button title="Search" id="search__button">Go!</button>
+    </section>
+    <table id="products" class="products__table">
+      <thead class="products__header">
+        <th>Id</th>
+        <th>Product Name</th>
+        <th>Product Kcal</th>
+      </thead>
+    </table>
+  </main>
+</body>
+
+</html>
