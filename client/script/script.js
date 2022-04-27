@@ -79,7 +79,7 @@ console.log(window.location.origin);
 console.log(window.location.host);
 const clientUrl = window.location.origin;
 if (window.location.href === `${clientUrl}/products.html`) {
-    fetch(`${clientUrl}/sampleData/products.json`)
+    fetch(`${clientUrl}/DietsManager/sampleData/products.json`)
         .then(response => response.json())
         .then(data => {
             for (const el of data.data) {
@@ -110,7 +110,7 @@ if (window.location.href === `${clientUrl}/products.html`) {
 const search = () => {
     const searchInputValue = document.querySelector("#search__input").value;
     console.log(searchInputValue);
-    fetch(`${clientUrl}/sampleData/products.json`)
+    fetch(`${clientUrl}/DietsManager/sampleData/products.json`)
         .then(response => response.json())
         .then(data => {
             productsTBody.innerHTML = '';
