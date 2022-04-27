@@ -139,9 +139,12 @@ const search = () => {
 
         })
         .catch(error => console.log(error));
-
+    return false;
 }
 
 const searchButton = document.querySelector("#search__button");
 
-searchButton.addEventListener("click", search);
+// searchButton.addEventListener("confirm", search);
+
+// On confirm search form:
+searchButton.onclick = search;
