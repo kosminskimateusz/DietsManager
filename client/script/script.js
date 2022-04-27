@@ -78,8 +78,9 @@ console.log(window.location.href);
 console.log(window.location.origin);
 console.log(window.location.host);
 const clientUrl = window.location.origin;
-if (window.location.href === `${clientUrl}/products.html`) {
-    fetch(`${clientUrl}/DietsManager/sampleData/products.json`)
+if (window.location.href.includes("products")) {
+    console.log("-------------------------------------------");
+    fetch(`./sampleData/products.json`)
         .then(response => response.json())
         .then(data => {
             for (const el of data.data) {
@@ -110,12 +111,12 @@ if (window.location.href === `${clientUrl}/products.html`) {
 const search = () => {
     const searchInputValue = document.querySelector("#search__input").value;
     console.log(searchInputValue);
-    fetch(`${clientUrl}/DietsManager/sampleData/products.json`)
+    fetch(`./sampleData/products.json`)
         .then(response => response.json())
         .then(data => {
             productsTBody.innerHTML = '';
             for (const el of data.data) {
-                if (el.name.includes(searchInputValue)) {
+                if (el.name.toLowerCase().includes(searchInputValue.toLowerCase())) {
                     console.log(el.id);
                     const tableRow = document.createElement("tr");
                     // Add ID to table
@@ -132,7 +133,6 @@ const search = () => {
                     tableRow.appendChild(kcalTableData);
 
                     productsTBody.appendChild(tableRow);
-
                 }
             }
             productsTable.appendChild(productsTBody);
