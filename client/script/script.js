@@ -20,6 +20,7 @@ function hideSidebarOutsideClick(evt) {
         && !document.querySelector('.hamburger').contains(evt.target)) {
         toggleSideBar();
         window.removeEventListener('click', hideSidebarOutsideClick);
+        window.removeEventListener('touchstart', hideSidebarOutsideClick);
     }
 }
 
@@ -27,12 +28,16 @@ const toggleSideBar = () => {
     HAMBURGER.classList.toggle('hamburger--active');
     SIDE_BAR.classList.toggle('hide');
 
-    if (HAMBURGER.classList.contains('hamburger--active'))
+    if (HAMBURGER.classList.contains('hamburger--active')) {
         window.addEventListener('click', hideSidebarOutsideClick);
-    else
+        window.addEventListener('touchstart', hideSidebarOutsideClick);
+    } else {
         window.removeEventListener('click', hideSidebarOutsideClick);
-    // console.log("toggle");
+        window.removeEventListener('touchstart', hideSidebarOutsideClick);
+        // console.log("toggle");
+    }
 }
+
 
 HAMBURGER.addEventListener('click', toggleSideBar);
 
