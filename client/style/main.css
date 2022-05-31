@@ -51,6 +51,7 @@ body {
   padding-top: 4rem;
   top: 0;
   left: 0;
+  z-index: 100;
   transition: transform 0.5s ease-in-out;
 }
 #side-bar #home-page {
@@ -134,7 +135,7 @@ body {
   left: calc(18rem - 2px);
   width: 4px;
   height: 100vh;
-  background-color: #505050;
+  background-color: rgb(80, 80, 80);
   border-radius: 50%;
 }
 
@@ -154,8 +155,7 @@ body {
   padding: 4rem 1rem;
   display: flex;
   width: 100vw;
-  min-height: -webkit-fill-available;
-  max-height: -webkit-fill-available;
+  min-height: 100vh;
   flex-direction: column;
   align-items: center;
   gap: 3rem;
@@ -194,7 +194,7 @@ body {
 }
 .products__table .products__header {
   text-align: center;
-  background-color: #885fa0;
+  background-color: rgb(136, 95, 160);
 }
 .products__table .products__body {
   background-color: rebeccapurple;
@@ -215,7 +215,7 @@ body {
   background-color: transparent;
   border: 0;
   margin: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .hamburger-box {

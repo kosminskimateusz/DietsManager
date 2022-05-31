@@ -13,12 +13,52 @@ print();
 const HAMBURGER = document.querySelector('.hamburger');
 const SIDE_BAR = document.querySelector('#side-bar');
 
+
+
+function hideSidebarOutsideClick(evt) {
+    if (!document.querySelector('nav').contains(evt.target)
+        && !document.querySelector('.hamburger').contains(evt.target)) {
+        toggleSideBar();
+        window.removeEventListener('click', hideSidebarOutsideClick);
+    }
+}
+
 const toggleSideBar = () => {
     HAMBURGER.classList.toggle('hamburger--active');
     SIDE_BAR.classList.toggle('hide');
+
+    if (HAMBURGER.classList.contains('hamburger--active'))
+        window.addEventListener('click', hideSidebarOutsideClick);
+    else
+        window.removeEventListener('click', hideSidebarOutsideClick);
+    // console.log("toggle");
 }
 
 HAMBURGER.addEventListener('click', toggleSideBar);
+
+
+
+
+const config = { attributes: true };
+
+
+
+
+// MUTATION OBSERVER FOR HAMBURGER--ACTIVE
+
+// const callback = function (mutationList, observer) {
+//     for (const mutation of mutationList) {
+//         if (mutation.type === 'attributes') {
+//             if (HAMBURGER.classList.contains('hamburger--active')) {
+
+//                 console.log("changed");
+//             }
+//         }
+//     }
+// }
+
+// const observer = new MutationObserver(callback);
+// observer.observe(HAMBURGER, config);
 
 
 // Drop-down Diets menu
@@ -147,4 +187,5 @@ const searchButton = document.querySelector("#search__button");
 // searchButton.addEventListener("confirm", search);
 
 // On confirm search form:
-searchButton.onclick = search;
+if (searchButton)
+    searchButton.onclick = search;
