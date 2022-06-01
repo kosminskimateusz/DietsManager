@@ -4,16 +4,11 @@ window.addEventListener("load", () => {
     document.body.classList.remove("preload");
 })
 
+
 import { print } from './page_loader.js'
-let products;
-
-print();
-
 
 const HAMBURGER = document.querySelector('.hamburger');
 const SIDE_BAR = document.querySelector('#side-bar');
-
-
 
 function hideSidebarOutsideClick(evt) {
     if (!document.querySelector('nav').contains(evt.target)
@@ -37,7 +32,6 @@ const toggleSideBar = () => {
         // console.log("toggle");
     }
 }
-
 
 HAMBURGER.addEventListener('click', toggleSideBar);
 
@@ -119,50 +113,16 @@ const productsTable = document.querySelector("#products");
 const productsTBody = document.createElement("tbody");
 productsTBody.classList.add("products__body");
 
-console.log(window.location.href);
-console.log(window.location.origin);
-console.log(window.location.host);
-const clientUrl = window.location.origin;
-if (window.location.href.includes("products")) {
-    console.log("-------------------------------------------");
-    fetch(`./sampleData/products.json`)
-        .then(response => response.json())
-        .then(data => {
-            for (const el of data.data) {
-                console.log(el.id);
-                const tableRow = document.createElement("tr");
-                // Add ID to table
-                const idTableData = document.createElement("td");
-                idTableData.innerHTML = el.id;
-                tableRow.appendChild(idTableData);
-                // Add Name to table
-                const nameTableData = document.createElement("td");
-                nameTableData.innerHTML = el.name;
-                tableRow.appendChild(nameTableData);
-                // Add Kcal to table
-                const kcalTableData = document.createElement("td");
-                kcalTableData.innerHTML = el.kcal;
-                tableRow.appendChild(kcalTableData);
 
-                productsTBody.appendChild(tableRow);
-            }
-            productsTable.appendChild(productsTBody);
-
-        })
-        .catch(error => console.log(error));
-} else if (window.location.href.includes("search__input")) {
-}
-
-const search = () => {
+const render = async function () {
     const searchInputValue = document.querySelector("#search__input").value;
     console.log(searchInputValue);
-    fetch(`./sampleData/products.json`)
+    await fetch(`./sampleData/products.json`)
         .then(response => response.json())
         .then(data => {
             productsTBody.innerHTML = '';
             for (const el of data.data) {
                 if (el.name.toLowerCase().includes(searchInputValue.toLowerCase())) {
-                    console.log(el.id);
                     const tableRow = document.createElement("tr");
                     // Add ID to table
                     const idTableData = document.createElement("td");
@@ -181,16 +141,16 @@ const search = () => {
                 }
             }
             productsTable.appendChild(productsTBody);
-
         })
         .catch(error => console.log(error));
     return false;
 }
 
-const searchButton = document.querySelector("#search__button");
+render();
 
-// searchButton.addEventListener("confirm", search);
+// DYNAMIC SEARCH
+const searchInput = document.querySelector("#search__input");
 
-// On confirm search form:
-if (searchButton)
-    searchButton.onclick = search;
+searchInput.addEventListener("input", () => {
+    render();
+})
