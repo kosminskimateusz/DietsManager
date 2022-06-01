@@ -114,6 +114,41 @@ const productsTBody = document.createElement("tbody");
 productsTBody.classList.add("products__body");
 
 
+// RENDER DATA FROM DB
+
+const renderFromDB = async function () {
+    const searchInputValue = document.querySelector("#search__input").value;
+    console.log(searchInputValue);
+    await fetch(`http://localhost:5000/products/`)
+        .then(response => response.json())
+        .then(data => {
+            productsTBody.innerHTML = '';
+            for (const el of data) {
+                if (el.name.toLowerCase().includes(searchInputValue.toLowerCase())) {
+                    const tableRow = document.createElement("tr");
+                    // Add ID to table
+                    const idTableData = document.createElement("td");
+                    idTableData.innerHTML = el.id;
+                    tableRow.appendChild(idTableData);
+                    // Add Name to table
+                    const nameTableData = document.createElement("td");
+                    nameTableData.innerHTML = el.name;
+                    tableRow.appendChild(nameTableData);
+                    // Add Kcal to table
+                    const kcalTableData = document.createElement("td");
+                    kcalTableData.innerHTML = el.kcal;
+                    tableRow.appendChild(kcalTableData);
+
+                    productsTBody.appendChild(tableRow);
+                }
+            }
+            productsTable.appendChild(productsTBody);
+
+        })
+}
+
+// RENDER DATA FROM SAMPLE DATA
+
 const render = async function () {
     const searchInputValue = document.querySelector("#search__input").value;
     console.log(searchInputValue);
@@ -121,7 +156,7 @@ const render = async function () {
         .then(response => response.json())
         .then(data => {
             productsTBody.innerHTML = '';
-            for (const el of data.data) {
+            for (const el of data) {
                 if (el.name.toLowerCase().includes(searchInputValue.toLowerCase())) {
                     const tableRow = document.createElement("tr");
                     // Add ID to table
@@ -146,11 +181,11 @@ const render = async function () {
     return false;
 }
 
-render();
+renderFromDB();
 
 // DYNAMIC SEARCH
 const searchInput = document.querySelector("#search__input");
 
 searchInput.addEventListener("input", () => {
-    render();
+    renderFromDB();
 })

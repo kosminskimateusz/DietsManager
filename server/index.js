@@ -25,9 +25,9 @@ types.setTypeParser(types.builtins.NUMERIC, value =>
 
 app.post("/products", async (req, res) => {
     try {
-        const { product_name, product_kcal } = req.body;
-        const newProduct = await pool.query("INSERT INTO products (product_name, product_kcal) VALUES($1,$2) RETURNING *",
-            [product_name, product_kcal]
+        const { name, kcal } = req.body;
+        const newProduct = await pool.query("INSERT INTO products (name, kcal) VALUES($1,$2) RETURNING *",
+            [name, kcal]
         );
         res.json(newProduct.rows[0]);
 
@@ -40,7 +40,7 @@ app.post("/products", async (req, res) => {
 
 app.get("/products", async (req, res) => {
     try {
-        const products = await pool.query("SELECT * FROM products ORDER BY product_id");
+        const products = await pool.query("SELECT * FROM products ORDER BY id");
         logger.addLog("GET PRODUCTS");
         res.json(products.rows);
     } catch (error) {
@@ -53,7 +53,7 @@ app.get("/products", async (req, res) => {
 app.get("/products/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const product = await pool.query("SELECT * FROM products WHERE product_id = $1", [id]);
+        const product = await pool.query("SELECT * FROM products WHERE id = $1", [id]);
         if (product.rows.length > 0) {
             res.json(product.rows[0]);
         } else {
@@ -71,10 +71,10 @@ app.get("/products/:id", async (req, res) => {
 app.put("/products/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const { product_name, product_kcal } = req.body;
+        const { name, kcal } = req.body;
 
         if (await checkProductExists(id)) {
-            const productUpdated = await pool.query(`UPDATE products SET product_name = '${product_name}', product_kcal = ${product_kcal} WHERE product_id = ${id} RETURNING *`);
+            const productUpdated = await pool.query(`UPDATE products SET name = '${name}', kcal = ${kcal} WHERE id = ${id} RETURNING *`);
 
             res.json(productUpdated.rows[0]);
         } else {
@@ -95,7 +95,7 @@ app.delete("/products/:id", async (req, res) => {
         const { id } = req.params;
 
         if (await checkProductExists(id)) {
-            const deleteProduct = await pool.query(`DELETE FROM products WHERE product_id = ${id} RETURNING *`);
+            const deleteProduct = await pool.query(`DELETE FROM products WHERE id = ${id} RETURNING *`);
             res.json(deleteProduct.rows[0]);
         } else {
             res.status(404);
@@ -114,6 +114,6 @@ app.listen(port, () => {
 })
 
 async function checkProductExists(id) {
-    const product = await pool.query(`SELECT * FROM products WHERE product_id = ${id}`);
+    const product = await pool.query(`SELECT * FROM products WHERE id = ${id}`);
     return product.rows[0] !== undefined ? true : false;
 }
