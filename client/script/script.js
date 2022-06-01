@@ -181,11 +181,11 @@ const render = async function () {
     return false;
 }
 
-renderFromDB();
+render();
 
 // DYNAMIC SEARCH
 const searchInput = document.querySelector("#search__input");
 
 searchInput.addEventListener("input", () => {
-    renderFromDB();
+    render();
 })
