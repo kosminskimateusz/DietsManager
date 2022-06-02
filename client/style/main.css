@@ -10,6 +10,8 @@
 
 body {
   position: relative;
+  background-color: #343434;
+  min-height: 100vh;
 }
 
 .preload * {
@@ -91,20 +93,27 @@ body {
   height: fit-content;
   text-decoration: none;
   list-style: none;
+  min-width: 162px;
   width: fit-content;
   margin: 2rem 0 1rem 2.3rem;
 }
 #side-bar .side-bar-list a {
+  cursor: pointer;
   color: #d1d0ca;
 }
-#side-bar .side-bar-list .side-bar-list-element {
+#side-bar .side-bar-list a:hover, #side-bar .side-bar-list span:hover {
+  color: #000;
+  text-shadow: 1px 1px rgba(107, 106, 106, 0.521);
+  transition: all 0.5s;
+}
+#side-bar .side-bar-list .side-bar-list-element, #side-bar .side-bar-list .diets {
   padding: 0.2rem 0;
 }
 #side-bar .side-bar-list .logout {
   margin-top: 2rem;
 }
 #side-bar .side-bar-list .inner-list {
-  max-height: 10rem;
+  max-height: 9rem;
   list-style: none;
   padding: 0.2rem 0;
 }
@@ -123,6 +132,7 @@ body {
   left: 0.8rem;
 }
 #side-bar .side-bar-list .toggle {
+  visibility: hidden;
   opacity: 0;
   max-height: 0 !important;
   padding: 0;
@@ -190,6 +200,7 @@ body {
 
 .products__table {
   width: 100%;
+  max-width: 50rem;
   background-color: cadetblue;
 }
 .products__table .products__header {

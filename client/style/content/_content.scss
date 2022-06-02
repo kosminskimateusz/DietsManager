@@ -40,6 +40,7 @@
 
 .products__table {
     width: 100%;
+    max-width: 50rem;
     background-color: cadetblue;
     .products__header {
         text-align: center;
@@ -54,3 +55,4 @@
         }
     }
 }
+
