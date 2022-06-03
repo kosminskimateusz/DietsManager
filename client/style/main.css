@@ -54,7 +54,7 @@ body {
   top: 0;
   left: 0;
   z-index: 100;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 #side-bar #home-page {
   color: #d1d0ca;
@@ -155,6 +155,7 @@ body {
 
 #side-bar.hide {
   transform: translateX(-18rem);
+  visibility: hidden;
 }
 
 #side-bar.show {

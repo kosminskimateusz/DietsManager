@@ -12,6 +12,30 @@ import { print } from './page_loader.js'
 const HAMBURGER = document.querySelector('.hamburger');
 const SIDE_BAR = document.querySelector('#side-bar');
 
+let open;
+if (localStorage.getItem("sideBar")) {
+    open = localStorage.getItem("sideBar");
+} else {
+    open = false;
+    localStorage.setItem("sideBar", open.toString());
+}
+
+
+// !!! FIX IT !!!
+
+
+
+
+if (open) {
+    HAMBURGER.classList.add('hamburger--active');
+    SIDE_BAR.classList.remove('hide');
+}
+
+
+
+//
+
+
 function hideSidebarOutsideClick(evt) {
     if (!document.querySelector('nav').contains(evt.target)
         && !document.querySelector('.hamburger').contains(evt.target)) {
@@ -26,9 +50,13 @@ const toggleSideBar = () => {
     SIDE_BAR.classList.toggle('hide');
 
     if (HAMBURGER.classList.contains('hamburger--active')) {
+        open = true;
+        localStorage.setItem("sideBar", open.toString());
         window.addEventListener('click', hideSidebarOutsideClick);
         window.addEventListener('touchstart', hideSidebarOutsideClick);
     } else {
+        open = false;
+        localStorage.setItem("sideBar", open.toString());
         window.removeEventListener('click', hideSidebarOutsideClick);
         window.removeEventListener('touchstart', hideSidebarOutsideClick);
         // console.log("toggle");
@@ -45,7 +73,7 @@ console.log(DIETS_BUTTON);
 const DIETS_LIST = document.querySelector(".inner-list.diets");
 console.log(DIETS_LIST);
 
-const transformUp = "visibility .6s ease-in-out, max-height .6s ease-in-out, opacity .3s ease-in-out, padding .4s ease-in-out";
+const transformUp = "visibility .2s ease-in-out, max-height .6s ease-in-out, opacity .1s ease-in-out, padding .4s ease-in-out";
 const transformDown = "visibility .6s ease-in-out, max-height .6s ease-in-out, opacity .2s .4s ease-in-out, padding .4s ease-in-out";
 
 
@@ -136,12 +164,14 @@ const render = async function () {
     return false;
 }
 
-render();
 
 
 // DYNAMIC SEARCH
 const searchInput = document.querySelector("#search__input");
 
-searchInput.addEventListener("input", () => {
+if (searchInput) {
     render();
-})
+    searchInput.addEventListener("input", () => {
+        render();
+    })
+}
