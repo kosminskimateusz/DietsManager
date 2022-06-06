@@ -24,16 +24,13 @@ if (localStorage.getItem("sideBar")) {
 }
 
 
-// !!! FIX IT !!!
-
-
-
-
 if (isOpen) {
     // HAMBURGER_INNER.classList.remove('hamburger-inner');
     HAMBURGER_INNER.classList.remove('hamburger-inner');
     HAMBURGER_INNER.classList.add('hamburger-inner-static');
     HAMBURGER.classList.add('hamburger--active');
+    window.addEventListener('click', hideSidebarOutsideClick);
+    window.addEventListener('touchstart', hideSidebarOutsideClick);
     // HAMBURGER_INNER.classList.add('static');
     SIDE_BAR.classList.remove('hide');
 } else {
@@ -42,9 +39,6 @@ if (isOpen) {
     SIDE_BAR.classList.add('hide');
 }
 
-
-
-//
 
 
 function hideSidebarOutsideClick(evt) {
