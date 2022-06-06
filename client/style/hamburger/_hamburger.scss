@@ -58,9 +58,43 @@
 }
 
 .hamburger--active .hamburger-inner::before {
+  content: '';
   transform: translateY(7px) rotate(45deg);
 }
 
 .hamburger--active .hamburger-inner::after {
+  content: '';
   transform: translateY(-7px) rotate(-45deg);
+}
+
+// Creating hamburger static for initial page reload
+
+.hamburger-inner-static {
+  @include hamburger-line();
+  left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  background-color: transparent;
+  transition: none;
+}
+
+.hamburger-inner-static::before,
+.hamburger-inner-static::after {
+  @include hamburger-line();
+  background-color: rgb(187, 185, 183);
+  content: '';
+  left: 0;
+  transition: none;
+}
+
+.hamburger-inner-static::before {
+  top: -7px;
+  content: '';
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-inner-static::after {
+  top: 7px;
+  content: '';
+  transform: translateY(-7px) rotate(-45deg); 
 }

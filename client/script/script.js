@@ -10,11 +10,14 @@ import { print } from './page_loader.js'
 // SIDEBAR MENU SHOW/HIDE
 
 const HAMBURGER = document.querySelector('.hamburger');
+const HAMBURGER_INNER = document.querySelector('.hamburger-inner');
 const SIDE_BAR = document.querySelector('#side-bar');
 
 let open;
+let isOpen;
 if (localStorage.getItem("sideBar")) {
     open = localStorage.getItem("sideBar");
+    isOpen = open === "true";
 } else {
     open = false;
     localStorage.setItem("sideBar", open.toString());
@@ -26,9 +29,17 @@ if (localStorage.getItem("sideBar")) {
 
 
 
-if (open) {
+if (isOpen) {
+    // HAMBURGER_INNER.classList.remove('hamburger-inner');
+    HAMBURGER_INNER.classList.remove('hamburger-inner');
+    HAMBURGER_INNER.classList.add('hamburger-inner-static');
     HAMBURGER.classList.add('hamburger--active');
+    // HAMBURGER_INNER.classList.add('static');
     SIDE_BAR.classList.remove('hide');
+} else {
+    HAMBURGER.classList.remove('hamburger--active');
+    // HAMBURGER_INNER.remove('static');
+    SIDE_BAR.classList.add('hide');
 }
 
 
@@ -46,17 +57,21 @@ function hideSidebarOutsideClick(evt) {
 }
 
 const toggleSideBar = () => {
+    HAMBURGER_INNER.classList.remove('hamburger-inner-static');
+    HAMBURGER_INNER.classList.add('hamburger-inner');
     HAMBURGER.classList.toggle('hamburger--active');
     SIDE_BAR.classList.toggle('hide');
-
-    if (HAMBURGER.classList.contains('hamburger--active')) {
+    if (SIDE_BAR.classList.contains('hide')) {
+        open = false;
+        localStorage.setItem("sideBar", open.toString());
+    } else {
         open = true;
         localStorage.setItem("sideBar", open.toString());
+    }
+    if (HAMBURGER.classList.contains('hamburger--active')) {
         window.addEventListener('click', hideSidebarOutsideClick);
         window.addEventListener('touchstart', hideSidebarOutsideClick);
     } else {
-        open = false;
-        localStorage.setItem("sideBar", open.toString());
         window.removeEventListener('click', hideSidebarOutsideClick);
         window.removeEventListener('touchstart', hideSidebarOutsideClick);
         // console.log("toggle");
