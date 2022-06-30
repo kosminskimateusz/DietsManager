@@ -1,5 +1,12 @@
 CREATE TABLE products(
-    product_id SERIAL PRIMARY KEY,
-    product_name VARCHAR(50) NOT NULL,
-    product_kcal NUMERIC NOT NULL
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    kcal NUMERIC NOT NULL
+);
+
+CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    email VARCHAR(255) NOT NULL
 );
